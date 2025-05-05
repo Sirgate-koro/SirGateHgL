@@ -1,211 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIRGATE Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Sirgate</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --text: #eaeaea;
+      --gray: #999;
+      --accent: #ffffff;
+    }
 
-        .header {
-            text-align: center;
-            padding: 50px;
-            background-color: #1f1f1f;
-            border-bottom: 2px solid #ffffff;
-        }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Fira Code', monospace;
+    }
 
-        .header h1 {
-            font-size: 3em;
-            color: #f5f5f5;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px;
+      transition: background 0.3s ease;
+    }
 
-        .header p {
-            font-size: 1.2em;
-            color: #cfcfcf;
-        }
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
 
-        .content {
-            padding: 20px;
-        }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+      transition: transform 0.3s ease;
+    }
 
-        .skills, .about, .projects, .contact {
-            margin-bottom: 50px;
-        }
+    .profile-pic:hover {
+      transform: scale(1.05);
+    }
 
-        .skills ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
 
-        .skills li {
-            background-color: #2c2c2c;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
+    .subtitle {
+      color: var(--gray);
+      font-size: 0.95em;
+    }
 
-        .skills li:hover {
-            background-color: #3d3d3d;
-            transform: scale(1.05);
-        }
+    section {
+      max-width: 900px;
+      margin: auto;
+      margin-bottom: 60px;
+      padding: 0 20px;
+    }
 
-        .about p {
-            background-color: #2c2c2c;
-            padding: 20px;
-            border-radius: 5px;
-        }
+    .section-title {
+      font-size: 1.5em;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      margin-bottom: 20px;
+    }
 
-        .project-grid {
-            display: flex;
-            gap: 20px;
-        }
+    .about, .contact {
+      color: var(--gray);
+      font-size: 1em;
+      line-height: 1.6;
+    }
 
-        .project {
-            flex: 1;
-            background-color: #2c2c2c;
-            padding: 20px;
-            border-radius: 5px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
-        .project:hover {
-            transform: translateY(-10px);
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-        }
+    .project-card {
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid #222;
+    }
 
-        .contact form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(255,255,255,0.04);
+    }
 
-        .contact input, .contact textarea {
-            background-color: #1f1f1f;
-            color: #ffffff;
-            border: 1px solid #3d3d3d;
-            padding: 10px;
-            border-radius: 5px;
-        }
+    .project-card h3 {
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
 
-        .contact button {
-            background-color: #3d3d3d;
-            color: #ffffff;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    .project-desc {
+      color: var(--gray);
+      font-size: 0.95em;
+    }
 
-        .contact button:hover {
-            background-color: #4a4a4a;
-        }
+    .tech-stack {
+      margin-top: 10px;
+      font-size: 0.85em;
+      font-style: italic;
+      color: #777;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #1f1f1f;
-            border-top: 2px solid #ffffff;
-        }
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      transition: 0.2s;
+    }
 
-        footer p {
-            margin: 0;
-            color: #cfcfcf;
-        }
-    </style>
+    .contact a:hover {
+      color: #ccc;
+      border-color: #ccc;
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Welcome to SIRGATE's Portfolio</h1>
-        <p>I am a programmer born in 2010, mastering Lua, Node.js, Python, C++, C#, and Golang.</p>
+
+  <header>
+    <img src="https://avatars.githubusercontent.com/u/150258745?v=4" alt="Profile" class="profile-pic" />
+    <h1>Sirgate</h1>
+    <p class="subtitle">Backend Engineer | REST API Specialist | Security Enthusiast</p>
+  </header>
+
+  <section>
+    <h2 class="section-title">About Me</h2>
+    <p class="about">
+      I am a backend developer who focuses on Server Management and Network Layer, I focus on the performance of a system and use technologies such as: NodeJs, Go, C, C++, Lua, and I can operate various systems such as: Mysql, MariaDB, Linux, etc.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Top 3 Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Simple malware</h3>
+        <p class="project-desc">Infecting IoT and other device for DDoS and any simulation.</p>
+        <div class="tech-stack">NodeJs, C, Mysql</div>
+      </div>
+
+      <div class="project-card">
+        <h3>L4 DStat</h3>
+        <p class="project-desc">Detecting L4 DDoS attack using Golang, Give infomation like: PPS, Gbps, Duration, Method, Flag, Attacker Isp And Region.</p>
+        <div class="tech-stack">Go</div>
+      </div>
+
+      <div class="project-card">
+        <h3>Internal Dashboard API</h3>
+        <p class="project-desc">API backend untuk dashboard internal perusahaan dengan sistem RBAC.</p>
+        <div class="tech-stack">PostgreSQL, Node.js, Docker, NGINX</div>
+      </div>
     </div>
-    
-    <div class="content">
-        <section class="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Lua</li>
-                <li>Node.js</li>
-                <li>Python</li>
-                <li>C++</li>
-                <li>C#</li>
-                <li>Golang</li>
-            </ul>
-        </section>
+  </section>
 
-        <section class="about">
-            <h2>About Me</h2>
-            <p>I'm a passionate developer focused on writing clean and efficient code. With experience across various programming languages, I enjoy tackling challenging problems and constantly learning new technologies.</p>
-        </section>
+  <section>
+    <h2 class="section-title">Contact Me</h2>
+    <p class="contact">
+      Email: <a href="mailto:sirgate221@gmail.com">sirgate221@gmail.com</a><br/>
+      GitHub: <a href="https://github.com/Sirgate-Koro/SirGateHgL" target="_blank">@Sirgate-Koro</a><br/>
+    </p>
+  </section>
 
-        <section class="projects">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <div class="project">
-                    <h3>Project 1</h3>
-                    <p>A brief description of the project.</p>
-                </div>
-                <div class="project">
-                    <h3>Project 2</h3>
-                    <p>A brief description of the project.</p>
-                </div>
-                <div class="project">
-                    <h3>Project 3</h3>
-                    <p>A brief description of the project.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact">
-            <h2>Contact</h2>
-            <form>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
-                <button type="submit">Send</button>
-            </form>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 SIRGATE. All rights reserved.</p>
-    </footer>
-
-    <script>
-        // Menambahkan interaksi hover untuk proyek
-        document.querySelectorAll('.project').forEach(item => {
-            item.addEventListener('mouseover', () => {
-                item.style.boxShadow = '0px 15px 25px rgba(0, 0, 0, 0.7)';
-            });
-            item.addEventListener('mouseout', () => {
-                item.style.boxShadow = 'none';
-            });
-        });
-
-        // Menambahkan efek hover pada skill items
-        document.querySelectorAll('.skills li').forEach(item => {
-            item.addEventListener('mouseover', () => {
-                item.style.transform = 'scale(1.1)';
-                item.style.backgroundColor = '#4a4a4a';
-            });
-            item.addEventListener('mouseout', () => {
-                item.style.transform = 'scale(1)';
-                item.style.backgroundColor = '#2c2c2c';
-            });
-        });
-    </script>
 </body>
 </html>
